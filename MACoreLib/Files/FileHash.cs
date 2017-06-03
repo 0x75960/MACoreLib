@@ -11,7 +11,7 @@ namespace MACoreLib.Files
 	/// <summary>
 	/// Exception thrown when failed to calculate hash sum .
 	/// </summary>
-	class HashCalculationFailedException : MACoreException { };
+	public class HashCalculationFailedException : MACoreException { };
 
 	/// <summary>
 	/// hash sums of a file.
@@ -21,7 +21,7 @@ namespace MACoreLib.Files
 	/// Methods returns cached results after the second time.
 	/// Because It's very heavy process.
 	/// </remarks>
-	class FileHash
+	public class FileHash
 	{
 		private string filepath;
 		private Dictionary<string, string> cache;
