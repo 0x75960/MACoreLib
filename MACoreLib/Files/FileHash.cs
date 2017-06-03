@@ -8,20 +8,20 @@ using System.Security.Cryptography;
 namespace MACoreLib.Files
 {
 
-    /// <summary>
-    /// Exception thrown when failed to calculate hash sum .
-    /// </summary>
-    class HashCalculationFailedException : MACoreException {};
+	/// <summary>
+	/// Exception thrown when failed to calculate hash sum .
+	/// </summary>
+	class HashCalculationFailedException : MACoreException { };
 
-    /// <summary>
-    /// hash sums of a file.
-    /// </summary>
-    /// <remarks>
-    /// This class calculate hash when call get methods at the first time.
-    /// Methods returns cached results after the second time.
-    /// Because It's very heavy process.
-    /// </remarks>
-    class FileHash
+	/// <summary>
+	/// hash sums of a file.
+	/// </summary>
+	/// <remarks>
+	/// This class calculate hash when call get methods at the first time.
+	/// Methods returns cached results after the second time.
+	/// Because It's very heavy process.
+	/// </remarks>
+	class FileHash
 	{
 		private string filepath;
 		private Dictionary<string, string> cache;
@@ -51,7 +51,7 @@ namespace MACoreLib.Files
 
 		/// <summary>get SHA512 of file</summary>
 		/// <returns>hex-string of SHA512 sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		public string GetSha512Sum()
 		{
 			return DealGetRequest("sha512", SHA512.Create());
@@ -59,7 +59,7 @@ namespace MACoreLib.Files
 
 		/// <summary>get SHA256 of file</summary>
 		/// <returns>hex-string of SHA256 sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		public string GetSha256Sum()
 		{
 			return DealGetRequest("sha256", SHA256.Create());
@@ -67,7 +67,7 @@ namespace MACoreLib.Files
 
 		/// <summary>get SHA1 of file</summary>
 		/// <returns>hex-string of SHA1 sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		public string GetSha1Sum()
 		{
 			return DealGetRequest("sha1", SHA1.Create());
@@ -75,7 +75,7 @@ namespace MACoreLib.Files
 
 		/// <summary>get Md5 of file</summary>
 		/// <returns>hex-string of Md5 sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		public string GetMd5Sum()
 		{
 			return DealGetRequest("md5", MD5.Create());
@@ -85,7 +85,7 @@ namespace MACoreLib.Files
 		/// <param name="key">key to cache. key must be uniqued for algorithm</param>
 		/// <param name="hasher">HashAlgorithm instance to calc hash</param>
 		/// <returns>hex-string of hash sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		private string DealGetRequest(string key, HashAlgorithm hasher)
 		{
 
@@ -105,23 +105,23 @@ namespace MACoreLib.Files
 		/// <summary>calc hash sum of file with speciefied Hash Algorithm</summary>
 		/// <param name="hasher">HashAlgorithm instance to calc hash</param>
 		/// <returns>hex-string of hash sum</returns>
-        /// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
+		/// <exception cref="MACoreLib.Files.HashCalculationFailedException"></exception>
 		private string GetHashSumWith(HashAlgorithm hasher)
 		{
 			string hexstring;
 
-            try
-            {
-                using (var fs = File.OpenRead(this.filepath))
-                {
-                    var checksum = hasher.ComputeHash(fs);
-                    hexstring = BitConverter.ToString(checksum).Replace("-", String.Empty);
-                }
-            }
-            catch
-            {
-                throw new HashCalculationFailedException();
-            }
+			try
+			{
+				using (var fs = File.OpenRead(this.filepath))
+				{
+					var checksum = hasher.ComputeHash(fs);
+					hexstring = BitConverter.ToString(checksum).Replace("-", String.Empty);
+				}
+			}
+			catch
+			{
+				throw new HashCalculationFailedException();
+			}
 
 			return hexstring;
 		}
