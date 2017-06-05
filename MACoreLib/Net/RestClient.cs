@@ -9,12 +9,18 @@ using System.Threading.Tasks;
 
 namespace MACoreLib.Net
 {
+    /// <summary>
+    /// exception thrown when failed to request
+    /// </summary>
     public class RequestFailedException : MACoreException { }
 
+    /// <summary>
+    /// exception thrown when failed to decode response
+    /// </summary>
     public class DecodeFailedException : MACoreException { }
 
     /// <summary>
-    /// Simple RestClient ***Untested***
+    /// simple REST API Client ***Untested***
     /// </summary>
     public class RestClient
     {
@@ -29,7 +35,6 @@ namespace MACoreLib.Net
         {
             this.cli = new HttpClient();
             this.cli.BaseAddress = new Uri(api_root);
-            this.cli.DefaultRequestHeaders.Add("Content-Type", "application/json");
             this.cli.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
