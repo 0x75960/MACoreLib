@@ -5,8 +5,8 @@ using System.IO;
 namespace MACoreLib.Files
 {
 
-    /// <summary>Exception thrown when enumeration failed.</summary>
-    public class FileEnumerationFailedException : MACoreException { };
+	/// <summary>Exception thrown when enumeration failed.</summary>
+	public class FileEnumerationFailedException : MACoreException { };
 
 	/// <summary>Uniqify files in directory</summary>
 	public class Uniqifier
