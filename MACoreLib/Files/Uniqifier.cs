@@ -1,14 +1,12 @@
-using System;
-using System.IO;
-using System.Collections.Generic;
-
 using MACoreLib.Exceptions;
+using System.Collections.Generic;
+using System.IO;
 
 namespace MACoreLib.Files
 {
 
-	/// <summary>Exception thrown when enumeration failed.</summary>
-	public class FileEnumerationFailedException : MACoreException { };
+    /// <summary>Exception thrown when enumeration failed.</summary>
+    public class FileEnumerationFailedException : MACoreException { };
 
 	/// <summary>Uniqify files in directory</summary>
 	public class Uniqifier
@@ -63,6 +61,7 @@ namespace MACoreLib.Files
 					// skip when calcuration failed.
 					continue;
 				}
+
 
 				if (alreadySeen.ContainsKey(sha256))
 				{
