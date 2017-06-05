@@ -46,7 +46,7 @@ namespace MACoreLib.Net
         /// <exception cref="MACoreLib.Net.RequestFailedException"></exception>
         /// <exception cref="MACoreLib.Net.DecodeFailedException"></exception>
         /// <returns>Object of response</returns>
-        public async Task<T> Get<T>(string api) where T : class, ISerializable
+        public async Task<T> Get<T>(string api) where T : class
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
@@ -81,7 +81,7 @@ namespace MACoreLib.Net
         /// <exception cref="MACoreLib.Net.RequestFailedException"></exception>
         /// <exception cref="MACoreLib.Net.DecodeFailedException"></exception>
         /// <returns>Object of response</returns>
-        public async Task<T> Get<T>(string api, Dictionary<string, string> param) where T : class, ISerializable
+        public async Task<T> Get<T>(string api, Dictionary<string, string> param) where T : class
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
@@ -119,7 +119,7 @@ namespace MACoreLib.Net
         /// <exception cref="MACoreLib.Net.RequestFailedException"></exception>
         /// <exception cref="MACoreLib.Net.DecodeFailedException"></exception>
         /// <returns>Object of response</returns>
-        public async Task<T> Post<T>(string api, Dictionary<string, string> param) where T : class, ISerializable
+        public async Task<T> Post<T>(string api, Dictionary<string, string> param) where T : class
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
@@ -156,7 +156,7 @@ namespace MACoreLib.Net
         /// <exception cref="MACoreLib.Net.RequestFailedException"></exception>
         /// <exception cref="MACoreLib.Net.DecodeFailedException"></exception>
         /// <returns>Object of response</returns>
-        public async Task<T> Put<T>(string api, Dictionary<string, string> param) where T : class, ISerializable
+        public async Task<T> Put<T>(string api, Dictionary<string, string> param) where T : class
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
 
